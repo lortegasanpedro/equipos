@@ -1,0 +1,55 @@
+<app-menu></app-menu>
+<div id="equipos-componente">
+ 
+       <p class="center">
+              Componente equipos!
+       </p>
+       <h3>Añadir Equipo:</h3>
+
+       <form [formGroup]="formulario">
+              <input type="text" placeholder="Nombre" formControlName="nombreEquipo">
+              <br>
+              <input type="text" placeholder="Ciudad" formControlName="ciudadEquipo">
+              <br>
+              <input type="number" placeholder="Socios" formControlName="sociosEquipo">
+              <br>
+              <input type="number" placeholder="Año fundación" formControlName="agnoFundacionEquipo">
+              <br>
+              <input type="url" placeholder="URL del escudo" formControlName="escudoURLEquipo">
+       </form>
+       <br>
+       <img [src]="equipo.escudoURL" [title]="equipo.nombre" alt="Escudo" height="60" width="60">
+       <!--Property Binding-->
+       <br>
+       <button (click)="addEquipo()">Añadir Equipo</button>
+       <br>
+       <br>
+       
+       <app-listado-equipos (evtEmmiter)="recogerInfo($event)" [arrayEquipos]="arrayEquipos">
+       </app-listado-equipos>
+
+       <h3>Detalle del equipo</h3>
+       <div>
+              Nombre: {{equipo.nombre | uppercase }}
+              <br>
+              Ciudad: {{equipo.ciudad}}
+              <br>
+              Nº Socios: {{equipo.socios}}
+              <br>
+              Año Fundación: {{equipo.agnoFundacion}}
+              <br>
+              Escudo:
+              <br>
+              <img [src]="equipo.escudoURL" alt="" height="120" width="120">
+       </div>
+</div>
+<!--
+  Alberto Basalo Academia Binaria
+  academiabinaria.com
+
+  Enrique Oriol enriqueorial.com
+
+  udemy.com Cursos
+
+  Victor Robles victorroblesweb.es
+-->
